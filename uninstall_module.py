@@ -41,13 +41,13 @@ def  main(list):
 
         # there should be 1 module in module_ids, but iterate for each module object
         for module in Module.browse(module_ids):
-            if module.state == 'installed':
+            if module.state == 'uninstalled':
                 # If installed, just print that it has install
-                print "%s has already been installed." % module.name
+                print "%s has already been uninstalled." % module.name
             else:
                 # Otherwise, install it
-                sys.stdout.write("Installing %s ... " % module.name)
-                module.button_immediate_install()
+                sys.stdout.write("Uninstalling %s ... " % module.name)
+                module.button_uninstall()
                 print "Done."
     
 if __name__ == "__main__":
